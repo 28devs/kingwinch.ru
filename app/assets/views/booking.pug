@@ -37,7 +37,7 @@ include inc/head.pug
 
     .row
       .col-md-6
-        .events_calendar
+        .events_calendar.events_calendar--booking
           #Calendar
             .months
               .swiper-container
@@ -68,7 +68,8 @@ include inc/head.pug
                   th.dow Сб
                   th.dow Вс
                 tr
-                  td.emptyday  
+                  td.emptyday.out
+                    .date 31
                   td#calendar_id_1.cell.workday.noevent.past(data-fulldate='2018-5-1', data-date='')
                     .date 1
                     .event
@@ -81,10 +82,10 @@ include inc/head.pug
                   td#calendar_id_4.cell.workday.noevent.past(data-fulldate='2018-5-4', data-date='')
                     .date 4
                     .event
-                  td#calendar_id_5.cell.weekend.noevent.past(data-fulldate='2018-5-5', data-date='')
+                  td#calendar_id_5.cell.noevent.past(data-fulldate='2018-5-5', data-date='')
                     .date 5
                     .event
-                  td#calendar_id_6.cell.weekend.noevent.past(data-fulldate='2018-5-6', data-date='')
+                  td#calendar_id_6.cell.noevent.past(data-fulldate='2018-5-6', data-date='')
                     .date 6
                     .event
                 tr
@@ -103,10 +104,10 @@ include inc/head.pug
                   td#calendar_id_11.cell.workday.noevent.past(data-fulldate='2018-5-11', data-date='')
                     .date 11
                     .event
-                  td#calendar_id_12.cell.weekend.noevent.past(data-fulldate='2018-5-12', data-date='')
+                  td#calendar_id_12.cell.noevent.past(data-fulldate='2018-5-12', data-date='')
                     .date 12
                     .event
-                  td#calendar_id_13.cell.weekend.noevent.past(data-fulldate='2018-5-13', data-date='')
+                  td#calendar_id_13.cell.noevent.past(data-fulldate='2018-5-13', data-date='')
                     .date 13
                     .event
                 tr
@@ -125,14 +126,14 @@ include inc/head.pug
                   td#calendar_id_18.cell.workday.noevent.past(data-fulldate='2018-5-18', data-date='')
                     .date 18
                     .event
-                  td#calendar_id_19.cell.weekend.isevent.past(data-fulldate='2018-5-19', data-date='')
+                  td#calendar_id_19.cell.isevent.past(data-fulldate='2018-5-19', data-date='')
                     .date 19
                     .event
                       a.item.ev(href='novosti/otkryitie-ters-park.html')
                         span.title Открытие Ters Park 2018
                         span.desc
                         span.date 19.05.18
-                  td#calendar_id_20.cell.weekend.noevent.past(data-fulldate='2018-5-20', data-date='')
+                  td#calendar_id_20.cell.noevent.past(data-fulldate='2018-5-20', data-date='')
                     .date 20
                     .event
                 tr
@@ -142,7 +143,7 @@ include inc/head.pug
                   td#calendar_id_22.cell.workday.noevent(data-fulldate='2018-5-22', data-date='')
                     .date 22
                     .event
-                  td#calendar_id_23.cell.workday.today.noevent(data-fulldate='2018-5-23', data-date='')
+                  td#calendar_id_23.cell.workday.noevent(data-fulldate='2018-5-23', data-date='')
                     .date 23
                     .event
                   td#calendar_id_24.cell.workday.noevent(data-fulldate='2018-5-24', data-date='')
@@ -151,10 +152,10 @@ include inc/head.pug
                   td#calendar_id_25.cell.workday.noevent(data-fulldate='2018-5-25', data-date='')
                     .date 25
                     .event
-                  td#calendar_id_26.cell.weekend.noevent(data-fulldate='2018-5-26', data-date='')
+                  td#calendar_id_26.cell.noevent(data-fulldate='2018-5-26', data-date='')
                     .date 26
                     .event
-                  td#calendar_id_27.cell.weekend.noevent(data-fulldate='2018-5-27', data-date='')
+                  td#calendar_id_27.cell.noevent(data-fulldate='2018-5-27', data-date='')
                     .date 27
                     .event
                 tr
@@ -170,11 +171,47 @@ include inc/head.pug
                   td#calendar_id_31.cell.workday.noevent(data-fulldate='2018-5-31', data-date='')
                     .date 31
                     .event
-                  td.emptyday  
-                  td.emptyday  
-                  td.emptyday  
-            .cover
+                  td.emptyday.out
+                    .date 1
+                  td.emptyday.out
+                    .date 2
+                  td.emptyday.out
+                    .date 3
 
+      .col-md-6
+        table.booking_list
+          thead.booking_list-head
+            td.booking_list-head-item Старт
+            td.booking_list-head-item Финиш
+            td.booking_list-head-item Статус
+
+          tr.booking_list-row
+            td.booking_list-row-item 10:00
+            td.booking_list-row-item 10:10
+            td.booking_list-row-item
+
+          tr.booking_list-row.booking_list-row--active
+            td.booking_list-row-item 10:00
+            td.booking_list-row-item 10:10
+            td.booking_list-row-item Забронировать
+
+          tr.booking_list-row.booking_list-row--completed
+            td.booking_list-row-item 10:00
+            td.booking_list-row-item 10:10
+            td.booking_list-row-item Откатано
+
+          tr.booking_list-row.booking_list-row--booked
+            td.booking_list-row-item 10:00
+            td.booking_list-row-item 10:10
+            td.booking_list-row-item Забронировано
+
+          tr.booking_list-row.booking_list-row--unavailable
+            td.booking_list-row-item 10:00
+            td.booking_list-row-item 10:10
+            td.booking_list-row-item Занято
+
+        .booking_btns
+          button.booking_confirm-btn Подтвердить бронь
 
 
 
