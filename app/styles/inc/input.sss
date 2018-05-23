@@ -1,0 +1,52 @@
+.form
+  &-success
+    display: none
+
+  &--success
+    ^&-content
+      display: none
+    
+    .form-success
+      display: block
+
+.input_field
+  margin-bottom: 20px
+
+.simple_input, .input_field-error
+  font-size: 15px
+  height: 62px
+  line-height: 62px
+  background-color: #fff
+  width: 100%
+  box-sizing: border-box
+  padding: 0 20px
+  color: #000
+  border: 0
+
+  &::placeholder
+    color: #9f9f9f
+
+.input_field
+  &-error
+    color: #d0021b
+    display: none
+
+  &--error
+    .simple_input
+      display: none
+
+    ^&-error
+      display: block
+
+.simple_submit
+  height: 62px
+  margin-top: 31px
+  border: 0
+  border-radius: 1px
+  background-color: #f9cf04
+  font-size: 15px
+  font-weight: bold
+  text-align: center
+  color: #333333
+  letter-spacing: 0.1px
+  width: 100% 
