@@ -1,0 +1,70 @@
+.choose-park
+  box: top
+  
+  &_hero
+    background: #41403f
+    min-height: 100vh
+    width: 50%
+    transition: width .7s
+    will-change: width
+
+
+    &-title
+      text: 40px 1.2 #fff
+      margin: 136px 50px 0 50px
+
+  &_select
+    padding: 53px 0
+    width: 50%
+    background: #fff
+
+    &-title
+      text: 40px 1.2 #000
+      margin-bottom: 31px
+      padding: 0 40px
+
+    &-map
+      text: 15px 1.2 .1px #000 bold
+      background: transparent
+      border: 0
+      margin-left: 40px
+      cursor: pointer
+
+      &:before
+        content: ''
+        background: svg-load('map.svg')
+        size: 20px
+        display: inline-block
+        position: relative
+        top: 6px
+        left: -3px
+        margin-right: 15px
+
+    &-items
+      border: 1px #999 solid
+      border-right: 0
+      border-left: 0
+      margin-top: 46px
+      width: 100%
+
+    &-item
+      padding: 43px 50px
+      box: left
+      text: 20px #000 bold
+      cursor: pointer
+
+      &-numb
+        margin-right: 18px
+
+      &:hover
+        background: #f9cf04
+
+  &_map
+    size: 0 100vh
+
+  &--map
+    ^&_hero
+      width: 0
+
+    ^&_map
+      width: 50%
