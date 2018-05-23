@@ -1,0 +1,31 @@
+include inc/head.pug
+
+.booking
+  a.booking_back(href='#!') Вернуться на kingwinch.ru
+
+  .row
+    .col-md-6
+      .booking_account
+        a.booking_account-exit(href='#!') Выйти
+        a.booking_account-change-password(href='#!') Изменить пароль
+
+        .booking_account
+          | Приветствуем вас
+          .booking_account-name Васисий Белянов
+
+        .booking_warning Внимание! Изменились правила бронирования
+
+    .col-md-6
+      .booking_balance
+        .booking_balance-value
+          | Ваш баланс: 
+          .booking_balance-amount 5 400 ₽
+
+        a.booking_balance-replenish(href='#!') Пополнить баланс
+
+        .booking_balance-warning
+          | ВНИМАНИЕ!!!
+          | При пополнении кошелька на 2000 и более,
+          | мы компенсируем вам 7 процентов от суммы на потери при транзакции, а также дарим по 20 рублей за каждую 1000 на ваш кошелек! 
+
+include inc/foot.pug
