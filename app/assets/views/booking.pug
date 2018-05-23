@@ -1,31 +1,181 @@
 include inc/head.pug
 
 .booking
-  a.booking_back(href='#!') Вернуться на kingwinch.ru
+  .container
+    a.booking_back(href='#!') Вернуться на kingwinch.ru
 
-  .row
-    .col-md-6
-      .booking_account
-        a.booking_account-exit(href='#!') Выйти
-        a.booking_account-change-password(href='#!') Изменить пароль
-
+    .row
+      .col-md-8
         .booking_account
-          | Приветствуем вас
-          .booking_account-name Васисий Белянов
+          a.booking_account-exit(href='#!') Выйти
+          a.booking_account-change-password(href='#!') Изменить пароль
 
-        .booking_warning Внимание! Изменились правила бронирования
+          .booking_account-welcome
+            | Приветствуем вас,
+            .booking_account-welcome-name Васисий Белянов
 
-    .col-md-6
-      .booking_balance
-        .booking_balance-value
-          | Ваш баланс: 
-          .booking_balance-amount 5 400 ₽
+          .booking_warning Внимание! Изменились правила бронирования
 
-        a.booking_balance-replenish(href='#!') Пополнить баланс
+      .col-md-4
+        .booking_balance
+          .booking_balance-value
+            | Ваш баланс: 
+            .booking_balance-amount 5 400 
+            .booking_balance-sign ₽
 
-        .booking_balance-warning
-          | ВНИМАНИЕ!!!
-          | При пополнении кошелька на 2000 и более,
-          | мы компенсируем вам 7 процентов от суммы на потери при транзакции, а также дарим по 20 рублей за каждую 1000 на ваш кошелек! 
+          a.booking_balance-replenish(href='#!') Пополнить баланс
+
+          .booking_balance-warning
+            | ВНИМАНИЕ!!!
+            | При пополнении кошелька на 2000 и более,
+            | мы компенсируем вам 7 процентов от суммы на потери при транзакции, а также дарим по 20 рублей за каждую 1000 на ваш кошелек!
+
+    .booking_options
+      .booking_options-item.booking_options-item--active Лебедка
+      .booking_options-item Лебедка
+      .booking_options-item Лебедка
+
+    .row
+      .col-md-6
+        .events_calendar
+          #Calendar
+            .months
+              .swiper-container
+                .swiper-wrapper
+                  .item.swiper-slide.my-active Май
+                  .item.swiper-slide Июнь
+                  .item.swiper-slide Июль
+                  .item.swiper-slide Август
+                  .item.swiper-slide Сентябрь
+                  .item.swiper-slide Октябрь
+                  .item.swiper-slide Ноябрь
+                  .item.swiper-slide Декабрь
+                  .item.swiper-slide Январь
+                  .item.swiper-slide Февраль
+                  .item.swiper-slide Март
+                  .item.swiper-slide Апрель
+              .swiper-nav
+                .swiper-button-prev
+                .swiper-button-next
+            table.calendar
+              tbody
+                tr
+                  th.dow Пн
+                  th.dow Вт
+                  th.dow Ср
+                  th.dow Чт
+                  th.dow Пт
+                  th.dow Сб
+                  th.dow Вс
+                tr
+                  td.emptyday  
+                  td#calendar_id_1.cell.workday.noevent.past(data-fulldate='2018-5-1', data-date='')
+                    .date 1
+                    .event
+                  td#calendar_id_2.cell.workday.noevent.past(data-fulldate='2018-5-2', data-date='')
+                    .date 2
+                    .event
+                  td#calendar_id_3.cell.workday.noevent.past(data-fulldate='2018-5-3', data-date='')
+                    .date 3
+                    .event
+                  td#calendar_id_4.cell.workday.noevent.past(data-fulldate='2018-5-4', data-date='')
+                    .date 4
+                    .event
+                  td#calendar_id_5.cell.weekend.noevent.past(data-fulldate='2018-5-5', data-date='')
+                    .date 5
+                    .event
+                  td#calendar_id_6.cell.weekend.noevent.past(data-fulldate='2018-5-6', data-date='')
+                    .date 6
+                    .event
+                tr
+                  td#calendar_id_7.cell.workday.noevent.past(data-fulldate='2018-5-7', data-date='')
+                    .date 7
+                    .event
+                  td#calendar_id_8.cell.workday.noevent.past(data-fulldate='2018-5-8', data-date='')
+                    .date 8
+                    .event
+                  td#calendar_id_9.cell.workday.noevent.past(data-fulldate='2018-5-9', data-date='')
+                    .date 9
+                    .event
+                  td#calendar_id_10.cell.workday.noevent.past(data-fulldate='2018-5-10', data-date='')
+                    .date 10
+                    .event
+                  td#calendar_id_11.cell.workday.noevent.past(data-fulldate='2018-5-11', data-date='')
+                    .date 11
+                    .event
+                  td#calendar_id_12.cell.weekend.noevent.past(data-fulldate='2018-5-12', data-date='')
+                    .date 12
+                    .event
+                  td#calendar_id_13.cell.weekend.noevent.past(data-fulldate='2018-5-13', data-date='')
+                    .date 13
+                    .event
+                tr
+                  td#calendar_id_14.cell.workday.noevent.past(data-fulldate='2018-5-14', data-date='')
+                    .date 14
+                    .event
+                  td#calendar_id_15.cell.workday.noevent.past(data-fulldate='2018-5-15', data-date='')
+                    .date 15
+                    .event
+                  td#calendar_id_16.cell.workday.noevent.past(data-fulldate='2018-5-16', data-date='')
+                    .date 16
+                    .event
+                  td#calendar_id_17.cell.workday.noevent.past(data-fulldate='2018-5-17', data-date='')
+                    .date 17
+                    .event
+                  td#calendar_id_18.cell.workday.noevent.past(data-fulldate='2018-5-18', data-date='')
+                    .date 18
+                    .event
+                  td#calendar_id_19.cell.weekend.isevent.past(data-fulldate='2018-5-19', data-date='')
+                    .date 19
+                    .event
+                      a.item.ev(href='novosti/otkryitie-ters-park.html')
+                        span.title Открытие Ters Park 2018
+                        span.desc
+                        span.date 19.05.18
+                  td#calendar_id_20.cell.weekend.noevent.past(data-fulldate='2018-5-20', data-date='')
+                    .date 20
+                    .event
+                tr
+                  td#calendar_id_21.cell.workday.noevent.past(data-fulldate='2018-5-21', data-date='')
+                    .date 21
+                    .event
+                  td#calendar_id_22.cell.workday.noevent(data-fulldate='2018-5-22', data-date='')
+                    .date 22
+                    .event
+                  td#calendar_id_23.cell.workday.today.noevent(data-fulldate='2018-5-23', data-date='')
+                    .date 23
+                    .event
+                  td#calendar_id_24.cell.workday.noevent(data-fulldate='2018-5-24', data-date='')
+                    .date 24
+                    .event
+                  td#calendar_id_25.cell.workday.noevent(data-fulldate='2018-5-25', data-date='')
+                    .date 25
+                    .event
+                  td#calendar_id_26.cell.weekend.noevent(data-fulldate='2018-5-26', data-date='')
+                    .date 26
+                    .event
+                  td#calendar_id_27.cell.weekend.noevent(data-fulldate='2018-5-27', data-date='')
+                    .date 27
+                    .event
+                tr
+                  td#calendar_id_28.cell.workday.noevent(data-fulldate='2018-5-28', data-date='')
+                    .date 28
+                    .event
+                  td#calendar_id_29.cell.workday.noevent(data-fulldate='2018-5-29', data-date='')
+                    .date 29
+                    .event
+                  td#calendar_id_30.cell.workday.noevent(data-fulldate='2018-5-30', data-date='')
+                    .date 30
+                    .event
+                  td#calendar_id_31.cell.workday.noevent(data-fulldate='2018-5-31', data-date='')
+                    .date 31
+                    .event
+                  td.emptyday  
+                  td.emptyday  
+                  td.emptyday  
+            .cover
+
+
+
 
 include inc/foot.pug
