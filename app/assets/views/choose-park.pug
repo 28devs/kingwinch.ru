@@ -1,0 +1,26 @@
+include inc/head.pug
+
+.choose-park
+  .choose-park_hero
+    .choose-park_hero-title Сеть вэйк-парков<br> Kingwinch Wake System<br> к вашим услугам.
+
+  .choose-park_select
+    .choose-park_select-title Выберите площадку
+    button.choose-park_select-map Выбрать на карте
+
+    .choose-park_select-items
+      .choose-park_select-item 
+        .choose-park_select-item-numb 1. 
+        .choose-park_select-item-name Кронштадт
+      .choose-park_select-item 
+        .choose-park_select-item-numb 2. 
+        .choose-park_select-item-name Отрадное
+      .choose-park_select-item 
+        .choose-park_select-item-numb 3.
+        .choose-park_select-item-name Tersk Park
+
+  .choose-park_map
+    #map_canvas
+
+script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKHMTkHEWFerdIYypni1ca3XTW511OVfQ&callback=initMap" async defer)
+include inc/foot.pug
