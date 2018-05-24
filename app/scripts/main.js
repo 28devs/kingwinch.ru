@@ -18,31 +18,13 @@ var parks = [
     'nashi-parki/otradnoe.html'
   ],
   [
-    'Зимний бассейн',
-    59.868882,
-    30.307985,
-    3,
-    'data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?> <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs> <circle id="path-1" cx="950" cy="302" r="16"></circle> <filter x="-21.9%" y="-15.6%" width="143.8%" height="143.8%" filterUnits="objectBoundingBox" id="filter-2"> <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset> <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur> <feColorMatrix values="0 0 0 0 0.713089923   0 0 0 0 0.59085076   0 0 0 0 2.81364395e-05  0 0 0 0.404608243 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix> </filter> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Парки" transform="translate(-930.000000, -284.000000)"> <g id="Oval-3-Copy-3"> <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use> <use fill="#F9CF04" fill-rule="evenodd" xlink:href="#path-1"></use> </g> </g> </g> </svg>',
-    'Новоизмайловский пр., д.16 к.6',
-    'nashi-parki/zimnij-bassejn.html'
-  ],
-  [
     'Ters Park',
     59.956577,
     30.273935,
-    4,
+    3,
     'data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?> <svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs> <circle id="path-1" cx="1244" cy="207" r="15"></circle> <filter x="-23.3%" y="-16.7%" width="146.7%" height="146.7%" filterUnits="objectBoundingBox" id="filter-2"> <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset> <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur> <feColorMatrix values="0 0 0 0 0.713089923   0 0 0 0 0.59085076   0 0 0 0 2.81364395e-05  0 0 0 0.404608243 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix> </filter> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Парки" transform="translate(-1225.000000, -190.000000)"> <g id="Oval-3-Copy-2"> <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use> <use fill="#BD04F9" fill-rule="evenodd" xlink:href="#path-1"></use> </g> </g> </g> </svg>',
     'Петровский пр.,4',
     'nashi-parki/tersk-park.html'
-  ],
-  [
-    'Кайт-станция',
-    60.012659,
-    29.690298,
-    5,
-    'data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?> <svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs> <circle id="path-1" cx="1244" cy="207" r="15"></circle> <filter x="-23.3%" y="-16.7%" width="146.7%" height="146.7%" filterUnits="objectBoundingBox" id="filter-2"> <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset> <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur> <feColorMatrix values="0 0 0 0 0.713089923   0 0 0 0 0.59085076   0 0 0 0 2.81364395e-05  0 0 0 0.404608243 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix> </filter> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Парки" transform="translate(-1225.000000, -190.000000)"> <g id="Oval-3-Copy-2"> <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use> <use fill="#BD04F9" fill-rule="evenodd" xlink:href="#path-1"></use> </g> </g> </g> </svg>',
-    'юго-западный берег О.Котлин',
-    'nashi-parki/kajt-stancziya.html'
   ]
 ];
 
@@ -91,6 +73,13 @@ function setMarkers(map) {
       },
       title: park[0],
       zIndex: park[3]
+    });
+
+    parks[i].push(marker);
+
+    marker.addListener('click', function() {
+      let id = this.zIndex;
+      setParkActive(id);
     });
 
     contentString =
@@ -146,5 +135,33 @@ function setMarkers(map) {
 }
 
 $('.choose-park_select-map').click(function() {
-  $('.choose-park').addClass('choose-park--map');
+  if (window.innerWidth >= 768) {
+    $('.choose-park').addClass('choose-park--map');
+    setTimeout(function() {
+      $('.choose-park').removeClass('choose-park--map');
+      $('.choose-park_select').css({ transform: 'unset', transition: 'none' });
+      $('.choose-park_hero').remove();
+    }, 700);
+  }
+
+  document.querySelector('.choose-park_map').scrollIntoView({
+    block: 'start',
+    behavior: 'smooth'
+  });
 });
+
+$('.choose-park_select-item').click(function() {
+  let id = $(this).data('select-park');
+
+  let marker = parks[id - 1][7];
+  new google.maps.event.trigger(marker, 'click');
+
+  setParkActive(id);
+});
+
+function setParkActive(id) {
+  $('[data-select-park=' + id + ']')
+    .addClass('choose-park_select-item--active')
+    .siblings()
+    .removeClass('choose-park_select-item--active');
+}

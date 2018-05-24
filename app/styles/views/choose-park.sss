@@ -1,33 +1,48 @@
 .choose-park
   box: top
+  flex-wrap: wrap @md nowrap
   
   &_hero
     background: #41403f
-    min-height: 100vh
-    width: 50%
-    transition: width .7s
-    will-change: width
+    min-height: auto @md 100vh
+    width: 100% @md 50%
+    background: url('https://images.unsplash.com/photo-1515664624364-a94d5eefec49?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d9fa2e11eb75b286acf08d764d328d9&auto=format&fit=crop&w=400&q=80') center / cover
 
+    &:after
+      content: ''
+      position: absolute 0 0 0 0
+      background: rgba(0, 0, 0, .5)
+      z-index: 1
 
     &-title
-      text: 40px 1.2 #fff
-      margin: 136px 50px 0 50px
+      text: 26px 1.2 #fff @md 40px
+      margin: 38px 20px @sm 40px @md 136px 50px 0 50px @xl 20% 0 0 10%
+      position: relative
+      z-index: 2
+
+      br
+        display: none @md block
 
   &_select
-    padding: 53px 0
-    width: 50%
+    padding: 30px 0 0 @md 53px 0
+    width: 100% @md 50%
+    min-height: auto @md 100vh
     background: #fff
+    position: relative
+    z-index: 2
+    transition: transform .7s
+    will-change: transform
 
     &-title
-      text: 40px 1.2 #000
+      text: 26px 1.2 #000 @sm 40px
       margin-bottom: 31px
-      padding: 0 40px
+      padding: 0 20px @sm 0 40px
 
     &-map
       text: 15px 1.2 .1px #000 bold
       background: transparent
       border: 0
-      margin-left: 40px
+      margin-left: 20px @sm 40px
       cursor: pointer
 
       &:before
@@ -41,14 +56,14 @@
         margin-right: 15px
 
     &-items
-      border: 1px #999 solid
+      border: 1px #cbcbcb solid
       border-right: 0
       border-left: 0
       margin-top: 46px
       width: 100%
 
     &-item
-      padding: 43px 50px
+      padding: 28px 20px @sm 33px 50px @md 43px 50px
       box: left
       text: 20px #000 bold
       cursor: pointer
@@ -56,15 +71,14 @@
       &-numb
         margin-right: 18px
 
-      &:hover
+      &:hover, &--active
         background: #f9cf04
 
   &_map
-    size: 0 100vh
+    size: 100% 400px @md 50% 100vh
+    position: static @md fixed 0 0 0 auto
+    z-index: 1
 
   &--map
-    ^&_hero
-      width: 0
-
-    ^&_map
-      width: 50%
+    ^&_select
+      transform: translateX(-100%)
