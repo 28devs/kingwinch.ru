@@ -1,0 +1,25 @@
+include inc/head.pug
+
+.auth
+  .auth_desc
+    p.auth_desc-title Войдите в Kingwinch <br> Wake System.
+
+    p.auth_desc-option или зарегестрируйтесь
+
+    a.auth_desc-option_button(href='!#') Зарегистрироваться
+
+  .auth_form
+    form.form.form--login
+      .form-content
+        
+        .input_field
+          input.simple_input.simple_input--grey(type='text' placeholder='Телефон')
+
+        .input_field.input_field
+          input.simple_input.simple_input--grey(type='password' placeholder='Пароль')
+
+          .input_field-error Пароли не совпадают
+
+        input.simple_submit(type='submit' value='Войти')
+
+include inc/foot.pug

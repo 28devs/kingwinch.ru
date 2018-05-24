@@ -9,6 +9,9 @@
     .form-success
       display: block
 
+  &--login
+    width: 100%
+
 .input_field
   margin-bottom: 20px
 
@@ -20,8 +23,12 @@
   width: 100%
   box-sizing: border-box
   padding: 0 20px
-  color: #000
+  color: #333
   border: 0
+
+  &--grey
+    background-color: #e5e5e5
+    border: 1px solid #c7c7c7
 
   &::placeholder
     color: #9f9f9f
@@ -49,4 +56,9 @@
   text-align: center
   color: #333333
   letter-spacing: 0.1px
-  width: 100% 
+  width: 100%
+  transition: all .3s
+  cursor: pointer
+
+  &:hover 
+    background-color: #eec500
