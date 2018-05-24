@@ -1,0 +1,118 @@
+.form
+  &-success
+    display: none
+
+  &--success
+    ^&-content
+      display: none
+    
+    .form-success
+      display: block
+
+  &--login
+    width: 100%
+
+.input_field
+  margin-bottom: 20px
+
+.simple_input, .input_field-error
+  font-size: 15px
+  height: 62px
+  line-height: 62px
+  background-color: #fff
+  width: 100%
+  box-sizing: border-box
+  padding: 0 20px
+  color: #333
+  border: 0
+
+  &--grey, &--inner_sub
+    background-color: #e5e5e5
+    border: 1px solid #c7c7c7
+    height: 66px
+    line-height: 66px
+
+  &--inner_sub
+    background-color: #fff
+    flex: 1 1 145px
+    min-width: 145px
+    margin-left: 20px
+    color: #989898
+    cursor: pointer
+
+  &::placeholder
+    color: #9f9f9f
+
+.input_field
+  display: flex
+  &-error
+    color: #d0021b
+    display: none
+
+  &--error
+    .simple_input
+      display: none
+
+    ^&-error
+      display: block
+
+.simple_checkbox
+  cursor: pointer
+
+  &-input
+    visibility: hidden
+    position: absolute
+
+  &-label
+    display: flex
+    box: horizontal
+
+  &-field
+    display: inline-block
+    size: 20px
+    background-color: #e5e5e5
+    border: 1px solid #c7c7c7
+    margin-right: 10px
+    cursor: pointer
+    position: relative
+    
+    &:before
+      content: ''
+      position: absolute
+      top: 3px
+      left: 2px
+      width: 15px
+      height: 15px
+      background: svg-load('checkbox-cheked.svg', fill: #333, stroke: #333)
+      background-repeat: no-repeat
+      transition: all .15s
+      opacity: 0
+    
+  input[type=checkbox]:checked + label
+    .simple_checkbox-field
+      &:before
+        opacity: 1
+
+  &-text
+    font-size: 15px
+
+  &-link
+    color: #ffcf00
+
+.simple_submit
+  height: 62px
+  margin-top: 31px
+  border: 0
+  border-radius: 1px
+  background-color: #f9cf04
+  font-size: 15px
+  font-weight: bold
+  text-align: center
+  color: #333333
+  letter-spacing: 0.1px
+  width: 100%
+  transition: all .3s
+  cursor: pointer
+
+  &:hover 
+    background-color: #eec500

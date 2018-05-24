@@ -1,0 +1,38 @@
+include inc/head.pug
+
+.auth
+  .auth_desc
+    p.auth_desc-title Войдите в Kingwinch <br> Wake System.
+
+    p.auth_desc-option или зарегестрируйтесь
+
+    a.auth_desc-option_button(href='!#') Войти
+
+  .auth_form
+    form.form.form--login
+      .form-content
+        
+        .input_field
+          input.simple_input.simple_input--grey(type='text' placeholder='Имя')
+
+        .input_field
+          input.simple_input.simple_input--grey(type='text' placeholder='Телефон')
+
+        .input_field
+          input.simple_input.simple_input--grey(type='password' placeholder='Пароль')
+
+        .input_field
+          input.simple_input.simple_input--grey(type='text' placeholder='Код из смс')
+          div.simple_input.simple_input--inner_sub Получить код
+          .input_field-error Пароли не совпадают
+
+        .input_field
+          .simple_checkbox(data-checkbox)
+            input.simple_checkbox-input(type='checkbox' id='rules')
+            label.simple_checkbox-label(for="rules")
+              .simple_checkbox-field.checked
+              p.simple_checkbox-text Согласен с <a class='simple_checkbox-link' href='!#'>правилами бронирования</a>
+
+        input.simple_submit(type='submit' value='Зарегистрироваться')
+
+include inc/foot.pug
