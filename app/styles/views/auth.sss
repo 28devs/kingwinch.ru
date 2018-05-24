@@ -2,6 +2,7 @@
   display: flex
   width: 100%
   min-height: 100vh
+  flex-flow: column @lg row
 
   &_desc, &_form
     flex: 1 1 50%
@@ -13,16 +14,16 @@
     flex-flow: column
     justify-content: center
     align-items: flex-start
-    padding: 0 280px
+    padding: 20px 6% @md 20px 10% @lg 0 12% 
 
     &-title
-      font-size: 40px
-      margin-top: -200px
-      line-height: 48px
+      font-size: 26px @sm 32px @lg 40px
+      margin-top: 0 @lg -200px
+      line-height: 36px @sm 48px
 
     &-option
-      margin: 58px 0
-      font-size: 21px
+      margin: 30px 0 @sm 40px 0 @lg 58px 0
+      font-size: 18px @lg 21px
 
     &-option_button
       font-size: 15px
@@ -31,10 +32,12 @@
       padding: 20px 30px
       letter-spacing: 0.3px
       display: inline-block
+      text-align: center
+      min-width: 150px
 
   &_form
     box-sizing: border-box
-    padding: 0 280px
+    padding: 20px 6% @md 20px 10% @lg 0 12% 
     display: flex
     justify-content: center
     align-items: center
