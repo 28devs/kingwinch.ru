@@ -8,7 +8,7 @@ include inc/head.pug
       .col-md-8
         .booking_account
           a.booking_account-exit(href='#!') Выйти
-          a.booking_account-change-password(href='#!') Изменить пароль
+          a.booking_account-change-password(href='#!' data-modal='pass_change') Изменить пароль
 
           .booking_account-welcome
             | Приветствуем вас,
@@ -23,7 +23,7 @@ include inc/head.pug
             .booking_balance-amount 5 400 
             .booking_balance-sign ₽
 
-          a.booking_balance-replenish(href='#!') Пополнить баланс
+          a.booking_balance-replenish(href='#!' data-modal='pass_change') Пополнить баланс
 
           .booking_balance-warning
             | ВНИМАНИЕ!!!
@@ -185,12 +185,12 @@ include inc/head.pug
             td.booking_list-head-item Финиш
             td.booking_list-head-item Статус
 
-          tr.booking_list-row
+          tr.booking_list-row(data-booking-evailable)
             td.booking_list-row-item 10:00
             td.booking_list-row-item 10:10
             td.booking_list-row-item
 
-          tr.booking_list-row.booking_list-row--active
+          tr.booking_list-row.booking_list-row--active(data-booking-evailable)
             td.booking_list-row-item 10:00
             td.booking_list-row-item 10:10
             td.booking_list-row-item Забронировать
@@ -213,6 +213,31 @@ include inc/head.pug
         .booking_btns
           button.booking_confirm-btn Подтвердить бронь
 
+#pass_change.modal.modal--change-pass
 
+  .modal-content--wide
+    form.form.form--change-pass
+      .form-content
+        img(src='img/robokassa.jpg')
+
+#pass_change.modal.modal--change-pass
+
+  .modal-content
+    form.form.form--change-pass
+      .form-content
+        p.modal-title Изменение пароля
+        
+        .input_field
+          input.simple_input(type='password' placeholder='Новый пароль')
+
+        .input_field.input_field
+          input.simple_input(type='password' placeholder='Еще раз')
+
+          .input_field-error Пароли не совпадают
+
+        input.simple_submit(type='submit' value='Сохранить')
+
+      .form-success
+        p.modal-title Пароль изменён
 
 include inc/foot.pug

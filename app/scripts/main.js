@@ -17,6 +17,40 @@ if(modalOpen) {
   });
 }
 
+//radio on booking
+let radioButtons = Array.from(document.querySelectorAll('.booking_options-item'));
+let radioCalendar = Array.from(document.querySelectorAll('.calendar .cell'));
+let radioBooking = Array.from(document.querySelectorAll('[data-booking-evailable]'));
+
+const handleClick = (e, nodeClass, array) => {
+  console.log(e)
+  e.preventDefault()
+
+  array.forEach(node => {
+    node.classList.remove(nodeClass)
+    console.log(node)
+  });
+  e.currentTarget.classList.add(nodeClass)
+}
+
+radioButtons.forEach(node => {
+  node.addEventListener('click', function() {
+    handleClick(event, 'booking_options-item--active', radioButtons)
+  })
+});
+
+radioCalendar.forEach(node => {
+  node.addEventListener('click', function() {
+    handleClick(event, 'isevent', radioCalendar)
+  })
+});
+
+radioBooking.forEach(node => {
+  node.addEventListener('click', function() {
+    handleClick(event, 'booking_list-row--active', radioBooking)
+  })
+});
+
 var parks = [
   [
     'Кронштадт',
