@@ -1,14 +1,11 @@
 //modal
-const modalOpen = document.querySelector('[data-modal]');
+const modalOpen = document.querySelectorAll('[data-modal]');
 
-if(modalOpen) {
+function modal(e) {
+  let modalId = this.getAttribute('data-modal')
+  let modalElem = document.getElementById(modalId);
 
-  const modalId = modalOpen.getAttribute('data-modal');
-  const modalElem = document.getElementById(modalId);
-
-  modalOpen.addEventListener('click', function() {
-    modalElem.classList.add("modal--open");
-  });
+  modalElem.classList.add("modal--open");
 
   modalElem.addEventListener('click', function(e) {
     if(e.target == modalElem) {
@@ -17,18 +14,22 @@ if(modalOpen) {
   });
 }
 
+if(modalOpen.length) {
+  modalOpen.forEach(node => {
+    node.addEventListener('click', modal);
+  })
+}
+
 //radio on booking
 let radioButtons = Array.from(document.querySelectorAll('.booking_options-item'));
 let radioCalendar = Array.from(document.querySelectorAll('.calendar .cell'));
 let radioBooking = Array.from(document.querySelectorAll('[data-booking-evailable]'));
 
 const handleClick = (e, nodeClass, array) => {
-  console.log(e)
   e.preventDefault()
 
   array.forEach(node => {
     node.classList.remove(nodeClass)
-    console.log(node)
   });
   e.currentTarget.classList.add(nodeClass)
 }

@@ -8,7 +8,7 @@ include inc/head.pug
       .col-md-8
         .booking_account
           a.booking_account-exit(href='#!') Выйти
-          a.booking_account-change-password(href='#!' data-modal='pass_change') Изменить пароль
+          a.booking_account-change-password(href='#!' data-modal='modal_pass_change') Изменить пароль
 
           .booking_account-welcome
             | Приветствуем вас,
@@ -23,7 +23,7 @@ include inc/head.pug
             .booking_balance-amount 5 400 
             .booking_balance-sign ₽
 
-          a.booking_balance-replenish(href='#!' data-modal='pass_change') Пополнить баланс
+          a.booking_balance-replenish(href='#!' data-modal='modal_pay') Пополнить баланс
 
           .booking_balance-warning
             | ВНИМАНИЕ!!!
@@ -185,7 +185,7 @@ include inc/head.pug
             td.booking_list-head-item Финиш
             td.booking_list-head-item Статус
 
-          tr.booking_list-row(data-booking-evailable)
+          tr.booking_list-row
             td.booking_list-row-item 10:00
             td.booking_list-row-item 10:10
             td.booking_list-row-item
@@ -213,14 +213,14 @@ include inc/head.pug
         .booking_btns
           button.booking_confirm-btn Подтвердить бронь
 
-#pass_change.modal.modal--change-pass
+#modal_pay.modal.modal--change-pass
 
   .modal-content--wide
     form.form.form--change-pass
       .form-content
         img(src='img/robokassa.jpg')
 
-#pass_change.modal.modal--change-pass
+#modal_pass_change.modal.modal--change-pass
 
   .modal-content
     form.form.form--change-pass
